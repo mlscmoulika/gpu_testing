@@ -1,3 +1,4 @@
+# summary of this file: This file is used to test the GPU performance for matrix multiplication using PyTorch. It checks if CUDA or MPS is available and performs matrix multiplication using different methods (torch.matmul, @ operator, torch.mm) and measures the time taken for each operation.
 import torch
 import time
 if torch.cuda.is_available():
