@@ -28,16 +28,3 @@ print(f"Time taken for addition: {start.elapsed_time(end)} milliseconds")
 # advatage of using torch.profiler is that it gives you a detailed breakdown of the time taken by each operation, 
 #while torch.cuda.Event only gives you the total time taken for a specific operation. 
 #However, torch.profiler can introduce some overhead, so for very small operations, the timing may not be accurate.
-
-# Method 3: torch.compile
-def vector_addition(a, b):
-    return a + b
-compiled_vector_addition = torch.compile(vector_addition)
-start = torch.cuda.Event(enable_timing=True)
-end = torch.cuda.Event(enable_timing=True)
-start.record()
-c = compiled_vector_addition(a, b)
-end.record()
-print("Method 3 - torch.compile:")
-print(f"Time taken for compiled addition: {start.elapsed_time(end)} milliseconds")
-
